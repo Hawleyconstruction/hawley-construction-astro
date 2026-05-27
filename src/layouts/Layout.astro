@@ -1,6 +1,7 @@
 ---
 // Hawley Construction Co. — Shared Layout
 // Every page passes: title, description, canonical, schema (optional JSON-LD array)
+import '../styles/global.css';
 const {
   title,
   description,
@@ -66,8 +67,6 @@ const AW_ID = "AW-18172396876";
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="/styles/global.css" />
 </head>
 <body>
   <slot />
