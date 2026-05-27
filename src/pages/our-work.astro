@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    title: "St. Pete Kitchen Transformation",
+    category: "Kitchen Remodeling",
+    location: "St. Petersburg, FL",
+    before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/kitchen-before-gnpMvGCrqpA7wDknZQaauG.webp",
+    after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/kitchen-after-hsVXguHfNLPDyGVXHRHCyx.webp",
+    description: "Complete gut renovation with custom KraftMaid cabinetry, Cambria quartz countertops, and open-concept conversion removing a load-bearing wall.",
+  },
+  {
+    title: "Master Bathroom Spa Retreat",
+    category: "Bathroom Remodeling",
+    location: "Tampa, FL",
+    after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/bathroom-after-mFZsTRAQ7UMXN2JYfxu5Qy.webp",
+    description: "Full master bath renovation with walk-in shower, freestanding tub, custom floating vanity, and large-format porcelain tile throughout.",
+  },
+  {
+    title: "Trex Transcend Pool Deck",
+    category: "Trex Deck",
+    location: "Clearwater, FL",
+    after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/deck-after-fHq2VWgfu4bzQ7nx4A2z86.webp",
+    description: "600 sq ft Trex Transcend deck surrounding an existing pool with aluminum cable railings, built-in bench seating, and integrated lighting.",
+  },
+  {
+    title: "Screened Florida Room Addition",
+    category: "Sunroom / Florida Room",
+    location: "St. Petersburg, FL",
+    after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-sunroom-screened-TouYoyDabjd4tNaeYJgTRx.webp",
+    description: "400 sq ft screened Florida room addition with vaulted ceiling, ceiling fans, and seamless connection to the existing living room.",
+  },
+  {
+    title: "Detached ADU Backyard Cottage",
+    category: "ADU / In-Law Suite",
+    location: "Tampa, FL",
+    after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-home-addition-new-7k7PkNkc4ssP8WLmYJpDD9.webp",
+    description: "600 sq ft detached ADU with full kitchen, bathroom, bedroom, and separate entrance. Now generating $1,800/month in rental income.",
+  },
+];
+---
+<Layout
+  title="Our Work | Portfolio | Hawley Construction Co."
+  description="See completed kitchen remodels, bathroom renovations, Trex decks, sunrooms, and home additions by Hawley Construction Co. in Tampa Bay, FL."
+  canonical="https://hawleyconstruction.co/our-work"
+>
+  <Navbar />
+  <section class="pt-28 pb-12 md:pt-36 md:pb-16" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] mb-3 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Portfolio</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif;">Our Work</h1>
+      <p class="text-lg" style="color:rgba(255,255,255,0.75);font-family:'DM Sans',sans-serif;">A selection of completed projects across Tampa Bay. Every project is personally overseen by owner Landon Hawley from start to finish.</p>
+    </div>
+  </section>
+  <section class="py-16 md:py-24" style="background-color:var(--cream);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-16">
+        {projects.map((project, i) => (
+          <div class={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${i % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+            <div class={i % 2 === 1 ? 'lg:col-start-2' : ''}>
+              {project.before ? (
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:var(--muted);font-family:'DM Sans',sans-serif;">Before</p>
+                    <img src={project.before} alt={`${project.title} before`} class="w-full h-52 object-cover" style="border-radius:2px;" loading="lazy" />
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:var(--gold);font-family:'DM Sans',sans-serif;">After</p>
+                    <img src={project.after} alt={`${project.title} after`} class="w-full h-52 object-cover" style="border-radius:2px;" loading="lazy" />
+                  </div>
+                </div>
+              ) : (
+                <img src={project.after} alt={project.title} class="w-full h-72 object-cover" style="border-radius:2px;" loading="lazy" />
+              )}
+            </div>
+            <div class={i % 2 === 1 ? 'lg:col-start-1' : ''}>
+              <span class="text-xs font-semibold uppercase tracking-widest mb-2 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">{project.category}</span>
+              <h2 class="text-2xl font-bold mb-2" style="color:var(--navy2);">{project.title}</h2>
+              <p class="text-sm mb-4" style="color:var(--light);font-family:'DM Sans',sans-serif;">{project.location}</p>
+              <p class="text-base leading-relaxed" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{project.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="mt-16 text-center">
+        <h2 class="text-2xl font-bold mb-4" style="color:var(--navy2);">Ready to Start Your Project?</h2>
+        <p class="mb-6" style="color:var(--muted);font-family:'DM Sans',sans-serif;">Get a free in-home estimate from Landon Hawley. We respond within 24 hours.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn-gold text-center">Get Free Estimate</a>
+          <a href="tel:7046191480" class="btn-outline-dark text-center">Call (704) 619-1480</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>

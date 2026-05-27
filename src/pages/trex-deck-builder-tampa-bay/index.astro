@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Trex Deck Builder Tampa Bay FL",
+    "description": "Certified Trex composite deck installation in Tampa Bay. Low-maintenance, 25-year warranty, slip-resistant. Licensed, insured, fixed-price quotes.",
+    "provider": {"@type": "GeneralContractor", "@id": "https://hawleyconstruction.co", "name": "Hawley Construction Co.", "telephone": "+17046191480", "url": "https://hawleyconstruction.co"},
+    "areaServed": [{"@type": "City", "name": "Tampa"}, {"@type": "City", "name": "St. Petersburg"}, {"@type": "City", "name": "Clearwater"}],
+    "url": "https://hawleyconstruction.co/trex-deck-builder-tampa-bay/",
+    "serviceType": "Deck Construction",
+    "offers": {"@type": "Offer", "priceRange": "$13,500 - $50,000+", "priceCurrency": "USD"}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How much does a Trex deck cost in Tampa Bay?", "acceptedAnswer": {"@type": "Answer", "text": "A Trex composite deck in Florida costs between $45-$85 per square foot installed. A standard 300 sq ft Trex deck costs $13,500-$25,500 installed."}},
+      {"@type": "Question", "name": "How long does Trex decking last?", "acceptedAnswer": {"@type": "Answer", "text": "Trex composite decking comes with a 25-year fade and stain warranty."}},
+      {"@type": "Question", "name": "Does Trex decking need to be sealed or stained?", "acceptedAnswer": {"@type": "Answer", "text": "No. Trex composite decking never needs to be painted, stained, or sealed. Annual cleaning with soap and water is all that is required."}}
+    ]
+  }
+];
+const IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-trex-deck-2uwLnSueruCa29BoSx4nDJ.webp";
+const AFTER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/deck-after-fHq2VWgfu4bzQ7nx4A2z86.webp";
+const faqs = [
+  { q: "How much does a Trex deck cost in Tampa Bay?", a: "A Trex composite deck in Florida costs between $45-$85 per square foot installed. A standard 300 sq ft Trex deck costs $13,500-$25,500 installed." },
+  { q: "How long does Trex decking last?", a: "Trex composite decking comes with a 25-year fade and stain warranty. In Florida climate, Trex significantly outlasts wood decking, which typically needs replacement every 8-12 years." },
+  { q: "Does Trex decking need to be sealed or stained?", a: "No. Trex composite decking never needs to be painted, stained, or sealed. Annual cleaning with soap and water is all that is required." },
+  { q: "Is Trex decking slip-resistant?", a: "Yes. Trex decking features a slip-resistant surface that is safe even when wet, making it ideal for Florida pool decks and outdoor areas." },
+  { q: "Do you need a permit for a Trex deck in Florida?", a: "Most decks over 30 inches above grade require a building permit in Florida. Hawley Construction handles all permit applications and inspections." },
+  { q: "How long does it take to build a Trex deck?", a: "A standard Trex deck takes 1-3 weeks to build depending on size and complexity. Custom multi-level decks may take 3-5 weeks." },
+];
+const benefits = ["Trex Select, Enhance, or Transcend lines", "Custom deck design and layout", "Structural framing and footings", "Built-in seating and planters", "Cable, glass, or aluminum railings", "Stair design and installation", "Permit handling included", "25-year Trex warranty"];
+---
+<Layout
+  title="Trex Deck Builder Tampa Bay FL | Hawley Construction Co."
+  description="Certified Trex composite deck installer in Tampa Bay. Low-maintenance, 25-year warranty, slip-resistant. Licensed and insured. Free estimates. Call (704) 619-1480."
+  canonical="https://hawleyconstruction.co/trex-deck-builder-tampa-bay/"
+  schema={schemaData}
+  ogImage={IMG}
+>
+  <Navbar />
+  <section class="relative pt-28 pb-20 md:pt-36 md:pb-28" style="background-color:var(--navy);">
+    <div class="absolute inset-0 overflow-hidden">
+      <img src={IMG} alt="Trex deck builder Tampa Bay FL" class="w-full h-full object-cover opacity-35" loading="eager" />
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <nav class="flex items-center gap-2 text-xs mb-6" style="color:rgba(255,255,255,0.6);font-family:'DM Sans',sans-serif;" aria-label="Breadcrumb">
+          <a href="/" style="color:rgba(255,255,255,0.6);">Home</a><span>/</span>
+          <a href="/services" style="color:rgba(255,255,255,0.6);">Services</a><span>/</span>
+          <span style="color:var(--gold);">Trex Deck Builder</span>
+        </nav>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] mb-3 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Tampa Bay, FL</span>
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" style="font-family:'Playfair Display',serif;">Trex Deck Builder Tampa Bay FL</h1>
+        <p class="text-lg mb-8" style="color:rgba(255,255,255,0.8);font-family:'DM Sans',sans-serif;">Certified Trex composite deck installation. 25-year warranty, zero maintenance, and built to withstand Florida weather for decades.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="btn-gold text-center">Get Free Estimate</a>
+          <a href="tel:7046191480" class="btn-outline-light text-center">Call (704) 619-1480</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <img src={AFTER} alt="Trex deck installation Tampa Bay" class="w-full h-80 object-cover" style="border-radius:2px;" loading="lazy" />
+    </div>
+  </section>
+  <section class="py-16 md:py-24" style="background-color:var(--cream);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+          <span class="section-divider"></span>
+          <h2 class="text-3xl font-bold mb-6" style="color:var(--navy2);">Tampa Bay Certified Trex Installer</h2>
+          <p class="text-base leading-relaxed mb-6" style="color:var(--muted);font-family:'DM Sans',sans-serif;">Hawley Construction Co. is a certified Trex installer serving Tampa, St. Petersburg, Clearwater, and all of Tampa Bay. Trex composite decking outperforms wood in Florida because it resists moisture, mold, and rot, never warps or splinters, requires zero maintenance, and comes with a 25-year fade and stain warranty.</p>
+          <h3 class="text-2xl font-bold mb-4" style="color:var(--navy2);">What Is Included</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            {benefits.map(b => (
+              <li class="flex items-start gap-2 text-sm" style="color:var(--muted);font-family:'DM Sans',sans-serif;">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5" style="background-color:var(--gold);display:inline-block;"></span>
+                {b}
+              </li>
+            ))}
+          </ul>
+          <h3 class="text-2xl font-bold mb-4" style="color:var(--navy2);">Frequently Asked Questions</h3>
+          <div class="mb-10">
+            {faqs.map((item, i) => (
+              <div class="border-b py-5" style="border-color:oklch(0.88 0.01 250);">
+                <button class="faq-btn w-full text-left flex items-center justify-between gap-4" data-idx={i}>
+                  <span class="text-base font-semibold" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">{item.q}</span>
+                  <span class="text-xl font-light flex-shrink-0" style="color:var(--gold);">+</span>
+                </button>
+                <div class="faq-answer hidden mt-3">
+                  <p class="text-sm leading-relaxed" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="lg:col-span-1">
+          <div class="bg-white p-8 shadow-sm sticky top-24" style="border-radius:2px;">
+            <h2 class="text-xl font-bold mb-2" style="color:var(--navy2);">Get a Free Estimate</h2>
+            <p class="text-sm mb-6" style="color:var(--muted);font-family:'DM Sans',sans-serif;">We respond within 24 hours. No obligation.</p>
+            <form id="seo-form" action="https://formspree.io/f/xvgpwkqn" method="POST" class="flex flex-col gap-4">
+              <input type="hidden" name="service" value="Trex Deck" />
+              <input class="form-input" type="text" name="name" placeholder="Your Name" required />
+              <input class="form-input" type="email" name="email" placeholder="Email Address" required />
+              <input class="form-input" type="tel" name="phone" placeholder="Phone Number" />
+              <textarea class="form-input" name="message" rows="4" placeholder="Describe your project..."></textarea>
+              <button type="submit" class="btn-gold w-full text-center">Send Message</button>
+            </form>
+            <p id="form-success" class="hidden text-sm mt-4 text-center font-semibold" style="color:oklch(0.55 0.15 145);">Thank you! We will be in touch within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif;">Ready to Build Your Dream Deck?</h2>
+      <p class="mb-8" style="color:rgba(255,255,255,0.7);font-family:'DM Sans',sans-serif;">Call us or request a free estimate online. Serving Tampa, St. Petersburg, Clearwater, and all of Tampa Bay.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-gold text-center">Get Free Estimate</a>
+        <a href="tel:7046191480" class="btn-outline-light text-center">Call (704) 619-1480</a>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>
+<script>
+document.getElementById('seo-form')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target as HTMLFormElement;
+  const data = new FormData(form);
+  const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+  if (res.ok) {
+    form.style.display = 'none';
+    document.getElementById('form-success')?.classList.remove('hidden');
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', { 'send_to': 'AW-18172396876/cPy9CKLmgrQcEMyKo91D', 'value': 100.0, 'currency': 'USD' });
+      gtag('event', 'generate_lead', { 'currency': 'USD', 'value': 100.0 });
+    }
+  }
+});
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling as HTMLElement;
+    const icon = btn.querySelector('span:last-child') as HTMLElement;
+    const isOpen = !answer.classList.contains('hidden');
+    answer.classList.toggle('hidden', isOpen);
+    icon.textContent = isOpen ? '+' : '\u2212';
+  });
+});
+</script>

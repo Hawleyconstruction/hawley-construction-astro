@@ -1,0 +1,19 @@
+# Hawley Construction Co. — Cloudflare Pages Redirects
+# True HTTP 301 redirects — processed at the edge before any HTML is served
+
+# Consolidate old /services/ duplicate pages → canonical SEO landing pages
+/services/kitchen-remodeling         /kitchen-remodeling-st-petersburg/    301
+/services/kitchen-remodeling/        /kitchen-remodeling-st-petersburg/    301
+/services/bathroom-remodeling        /bathroom-remodeling-st-petersburg/   301
+/services/bathroom-remodeling/       /bathroom-remodeling-st-petersburg/   301
+/services/sunrooms                   /sunroom-florida-room-contractor/      301
+/services/sunrooms/                  /sunroom-florida-room-contractor/      301
+/services/trex-decks                 /trex-deck-builder-tampa-bay/          301
+/services/trex-decks/                /trex-deck-builder-tampa-bay/          301
+
+# Redirect any trailing-slash variants to canonical form (with trailing slash)
+/kitchen-remodeling-st-petersburg    /kitchen-remodeling-st-petersburg/    301
+/bathroom-remodeling-st-petersburg   /bathroom-remodeling-st-petersburg/   301
+/trex-deck-builder-tampa-bay         /trex-deck-builder-tampa-bay/          301
+/sunroom-florida-room-contractor     /sunroom-florida-room-contractor/      301
+/adu-in-law-suite-builder            /adu-in-law-suite-builder/             301

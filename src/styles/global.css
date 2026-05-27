@@ -1,0 +1,45 @@
+/* Hawley Construction Co. — Global Styles | Modern Craftsman | Navy + Gold + Cream */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+:root {
+  --navy:  oklch(0.18 0.008 250);
+  --navy2: oklch(0.22 0.01 250);
+  --gold:  oklch(0.77 0.065 82);
+  --gold2: oklch(0.70 0.075 82);
+  --cream: oklch(0.97 0.008 82);
+  --steel: oklch(0.64 0.055 230);
+  --muted: oklch(0.50 0.01 250);
+  --light: oklch(0.65 0.01 250);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background-color: var(--cream); color: var(--navy2); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+.btn-gold { display: inline-block; background-color: var(--gold); color: var(--navy); font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1.5rem; border-radius: 2px; transition: background-color 0.2s, transform 0.15s; text-decoration: none; cursor: pointer; border: none; }
+.btn-gold:hover { background-color: var(--gold2); transform: translateY(-1px); }
+
+.btn-outline-light { display: inline-block; background-color: transparent; color: white; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1.5rem; border-radius: 2px; border: 1.5px solid rgba(255,255,255,0.5); transition: border-color 0.2s, background-color 0.2s; text-decoration: none; cursor: pointer; }
+.btn-outline-light:hover { border-color: white; background-color: rgba(255,255,255,0.08); }
+
+.btn-outline-dark { display: inline-block; background-color: transparent; color: var(--navy); font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1.5rem; border-radius: 2px; border: 1.5px solid var(--navy); transition: background-color 0.2s; text-decoration: none; cursor: pointer; }
+.btn-outline-dark:hover { background-color: rgba(0,0,0,0.06); }
+
+.section-divider { display: block; width: 3rem; height: 2px; background-color: var(--gold); margin-bottom: 1.25rem; }
+.text-gold { color: var(--gold); }
+.text-navy { color: var(--navy); }
+.text-steel { color: var(--steel); }
+.text-muted { color: var(--muted); }
+.bg-navy { background-color: var(--navy); }
+.bg-cream { background-color: var(--cream); }
+.bg-gold { background-color: var(--gold); }
+
+.form-input { width: 100%; padding: 0.75rem 1rem; border: 1px solid oklch(0.85 0.01 250); border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; background: white; color: var(--navy2); transition: border-color 0.2s; outline: none; }
+.form-input:focus { border-color: var(--gold); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-up { animation: fadeUp 0.6s ease forwards; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }

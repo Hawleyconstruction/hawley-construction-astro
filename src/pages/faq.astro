@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const categories = [
+  {
+    title: "Getting Started",
+    faqs: [
+      { q: "How do I get a quote?", a: "Call us at (704) 619-1480 or submit our online contact form. Landon will personally reach out within 24 hours to schedule a free in-home estimate." },
+      { q: "Are your quotes fixed or estimates?", a: "Fixed. Once we sign a contract, the price does not change unless you request a scope change in writing. No surprise invoices at the end of the project." },
+      { q: "Do you require a deposit?", a: "Yes. We require a deposit to begin work, typically 10-20% of the project total. The payment schedule is outlined in your contract before any work begins." },
+      { q: "How far in advance should I book?", a: "We typically book 4-8 weeks out for most projects. For larger additions and ADUs, 8-12 weeks is common. Contact us early to secure your spot on the schedule." },
+    ]
+  },
+  {
+    title: "Permits & Licensing",
+    faqs: [
+      { q: "Are you licensed and insured?", a: "Yes. Hawley Construction Co. is a Florida State Certified General Contractor, fully licensed, bonded, and insured. We carry general liability and workers' compensation insurance on every project." },
+      { q: "Do you handle permits?", a: "Yes. We pull every required permit through Pinellas County, the City of St. Petersburg, Hillsborough County, or whichever municipality your project falls under. Permit costs are included in your quote." },
+      { q: "Do you handle HOA approvals?", a: "Yes. We coordinate with your HOA to obtain any required approvals before work begins." },
+    ]
+  },
+  {
+    title: "During Construction",
+    faqs: [
+      { q: "Can my family live in the house during a remodel?", a: "For most kitchen and bathroom remodels, yes. We set up temporary accommodations (a kitchenette in another room, access to a second bathroom) and maintain daily site cleanup to minimize disruption." },
+      { q: "How do you handle site cleanup?", a: "We clean the job site at the end of every workday. Debris is removed regularly and we use dust barriers to protect the rest of your home." },
+      { q: "Who will be on my job site?", a: "Landon Hawley personally oversees every project. You will meet him at the estimate, see him regularly during construction, and he conducts the final walkthrough." },
+      { q: "What are your working hours?", a: "We work Monday through Friday, 7am to 5pm. Saturday work is available for certain project phases when needed." },
+    ]
+  },
+  {
+    title: "Timelines",
+    faqs: [
+      { q: "How long does a kitchen remodel take?", a: "Most full kitchen remodels run 6-10 weeks from demolition to final walkthrough. Cabinet lead times can push this 1-2 weeks if you choose custom cabinetry." },
+      { q: "How long does a bathroom remodel take?", a: "A standard bathroom remodel takes 3-6 weeks. A half-bath refresh can be completed in 2-3 weeks. A full master bathroom renovation with custom tile takes 5-8 weeks." },
+      { q: "How long does a home addition take?", a: "A home addition typically takes 3-6 months from permit approval to completion, depending on size and complexity. The design and permitting phase adds 4-8 weeks before construction begins." },
+      { q: "How long does a Trex deck take?", a: "A standard Trex deck takes 1-3 weeks to build. Custom multi-level decks may take 3-5 weeks." },
+    ]
+  },
+  {
+    title: "Warranties & Guarantees",
+    faqs: [
+      { q: "Do you offer a warranty?", a: "Yes. We provide a one-year workmanship warranty on all our work. Materials carry their own manufacturer warranties — Trex decking, for example, comes with a 25-year fade and stain warranty." },
+      { q: "What if I am not satisfied with the work?", a: "We do not consider a project complete until you are fully satisfied. If there is an issue, contact Landon directly and we will address it promptly." },
+    ]
+  }
+];
+
+const allFaqs = categories.flatMap(c => c.faqs);
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allFaqs.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  }
+];
+---
+<Layout
+  title="FAQ | Hawley Construction Co. | Tampa Bay Remodeling"
+  description="Frequently asked questions about remodeling and construction with Hawley Construction Co. in Tampa Bay. Permits, timelines, pricing, warranties, and more."
+  canonical="https://hawleyconstruction.co/faq"
+  schema={schemaData}
+>
+  <Navbar />
+  <section class="pt-28 pb-12 md:pt-36 md:pb-16" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] mb-3 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Common Questions</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif;">Frequently Asked Questions</h1>
+      <p class="text-lg" style="color:rgba(255,255,255,0.75);font-family:'DM Sans',sans-serif;">Everything you need to know before starting your remodeling project with Hawley Construction Co.</p>
+    </div>
+  </section>
+  <section class="py-16 md:py-24" style="background-color:var(--cream);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {categories.map((cat, ci) => (
+        <div class="mb-12">
+          <span class="section-divider"></span>
+          <h2 class="text-2xl font-bold mb-6" style="color:var(--navy2);">{cat.title}</h2>
+          <div>
+            {cat.faqs.map((item, i) => (
+              <div class="border-b py-5" style="border-color:oklch(0.88 0.01 250);">
+                <button class="faq-btn w-full text-left flex items-center justify-between gap-4" data-idx={`${ci}-${i}`}>
+                  <span class="text-base font-semibold" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">{item.q}</span>
+                  <span class="text-xl font-light flex-shrink-0" style="color:var(--gold);">+</span>
+                </button>
+                <div class="faq-answer hidden mt-3">
+                  <p class="text-sm leading-relaxed" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+      <div class="mt-12 p-8 text-center" style="background-color:var(--navy);border-radius:2px;">
+        <h2 class="text-2xl font-bold text-white mb-3" style="font-family:'Playfair Display',serif;">Still Have Questions?</h2>
+        <p class="mb-6" style="color:rgba(255,255,255,0.7);font-family:'DM Sans',sans-serif;">Call Landon directly or send us a message. We respond within 24 hours.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn-gold text-center">Contact Us</a>
+          <a href="tel:7046191480" class="btn-outline-light text-center">Call (704) 619-1480</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>
+<script>
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling as HTMLElement;
+    const icon = btn.querySelector('span:last-child') as HTMLElement;
+    const isOpen = !answer.classList.contains('hidden');
+    answer.classList.toggle('hidden', isOpen);
+    icon.textContent = isOpen ? '+' : '\u2212';
+  });
+});
+</script>

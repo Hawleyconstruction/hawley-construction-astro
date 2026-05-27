@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = [
+  {
+    slug: "kitchen-remodel-cost-st-petersburg-2025",
+    title: "Kitchen Remodel Cost in St. Petersburg FL (2025 Guide)",
+    excerpt: "A detailed breakdown of what a kitchen remodel costs in St. Petersburg, FL — from a basic refresh to a full custom renovation. Includes real project examples.",
+    date: "March 15, 2025",
+    category: "Kitchen Remodeling",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-kitchen-mSpoc3xtKks8iMHpTCvAxs.webp",
+  },
+  {
+    slug: "trex-vs-wood-deck-florida",
+    title: "Trex vs. Wood Deck in Florida: Which Is Better?",
+    excerpt: "Florida's climate is hard on wood decking. We compare Trex composite decking vs. pressure-treated wood on cost, maintenance, longevity, and ROI for Tampa Bay homeowners.",
+    date: "February 28, 2025",
+    category: "Outdoor Living",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-trex-deck-2uwLnSueruCa29BoSx4nDJ.webp",
+  },
+  {
+    slug: "bathroom-remodel-roi-florida",
+    title: "Bathroom Remodel ROI in Florida: What Adds the Most Value?",
+    excerpt: "Not all bathroom upgrades deliver the same return. We break down which bathroom remodeling projects add the most resale value in the Tampa Bay real estate market.",
+    date: "January 20, 2025",
+    category: "Bathroom Remodeling",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-bathroom-KW8hCkNSxN2cYTrJakvzLS.webp",
+  },
+  {
+    slug: "adu-rules-tampa-bay-2025",
+    title: "ADU Rules in Tampa Bay 2025: What Homeowners Need to Know",
+    excerpt: "Florida has made it easier than ever to build an ADU. We explain the current rules for Tampa, St. Petersburg, and Pinellas County — setbacks, size limits, permits, and rental rules.",
+    date: "December 10, 2024",
+    category: "ADU",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-home-addition-new-7k7PkNkc4ssP8WLmYJpDD9.webp",
+  },
+  {
+    slug: "sunroom-vs-florida-room-difference",
+    title: "Sunroom vs. Florida Room: What Is the Difference?",
+    excerpt: "Homeowners often use these terms interchangeably, but they are different structures with different costs and uses. Here is how to choose the right one for your Tampa Bay home.",
+    date: "November 5, 2024",
+    category: "Sunrooms",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-sunroom-screened-TouYoyDabjd4tNaeYJgTRx.webp",
+  },
+];
+---
+<Layout
+  title="Blog | Hawley Construction Co. | Tampa Bay Remodeling Tips"
+  description="Remodeling tips, cost guides, and project inspiration for Tampa Bay homeowners from Hawley Construction Co."
+  canonical="https://hawleyconstruction.co/blog"
+>
+  <Navbar />
+  <section class="pt-28 pb-12 md:pt-36 md:pb-16" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] mb-3 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Resources</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif;">Remodeling Blog</h1>
+      <p class="text-lg" style="color:rgba(255,255,255,0.75);font-family:'DM Sans',sans-serif;">Cost guides, project tips, and local insights for Tampa Bay homeowners.</p>
+    </div>
+  </section>
+  <section class="py-16 md:py-24" style="background-color:var(--cream);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map(post => (
+          <a href={`/blog/${post.slug}`} class="group block bg-white shadow-sm overflow-hidden" style="border-radius:2px;text-decoration:none;">
+            <div class="overflow-hidden">
+              <img src={post.image} alt={post.title} class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold uppercase tracking-widest mb-2 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">{post.category}</span>
+              <h2 class="text-lg font-bold mb-3 leading-snug" style="color:var(--navy2);">{post.title}</h2>
+              <p class="text-sm leading-relaxed mb-4" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{post.excerpt}</p>
+              <p class="text-xs" style="color:var(--light);font-family:'DM Sans',sans-serif;">{post.date}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>

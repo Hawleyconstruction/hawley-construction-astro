@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Bathroom Remodeling St. Petersburg FL",
+    "description": "Full bathroom remodeling services in St. Petersburg FL. Walk-in showers, custom vanities, tile work. Licensed, insured, fixed-price quotes.",
+    "provider": {"@type": "GeneralContractor", "@id": "https://hawleyconstruction.co", "name": "Hawley Construction Co.", "telephone": "+17046191480", "url": "https://hawleyconstruction.co"},
+    "areaServed": [{"@type": "City", "name": "St. Petersburg"}, {"@type": "City", "name": "Tampa"}, {"@type": "City", "name": "Clearwater"}],
+    "url": "https://hawleyconstruction.co/bathroom-remodeling-st-petersburg/",
+    "serviceType": "Bathroom Remodeling",
+    "offers": {"@type": "Offer", "priceRange": "$15,000 - $80,000+", "priceCurrency": "USD"}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How long does a bathroom remodel take?", "acceptedAnswer": {"@type": "Answer", "text": "A standard bathroom remodel takes 3-6 weeks. A full master bathroom renovation with custom tile takes 5-8 weeks."}},
+      {"@type": "Question", "name": "Are your bathroom remodel quotes fixed?", "acceptedAnswer": {"@type": "Answer", "text": "Fixed. Once we sign a contract, the price does not change unless you request a scope change in writing."}},
+      {"@type": "Question", "name": "Do you install walk-in showers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Walk-in shower conversions are one of our most popular bathroom upgrades. We handle everything from framing and waterproofing to tile, glass, and fixtures."}}
+    ]
+  }
+];
+const IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-bathroom-KW8hCkNSxN2cYTrJakvzLS.webp";
+const AFTER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/bathroom-after-mFZsTRAQ7UMXN2JYfxu5Qy.webp";
+const faqs = [
+  { q: "How long does a bathroom remodel take?", a: "A standard bathroom remodel takes 3-6 weeks. A half-bath refresh can be completed in 2-3 weeks. A full master bathroom renovation with custom tile takes 5-8 weeks." },
+  { q: "Do you handle permits for bathroom remodels?", a: "Yes. We pull all required permits through Pinellas County or the City of St. Petersburg and coordinate all inspections." },
+  { q: "Can I stay in my home during a bathroom remodel?", a: "Yes. We work one bathroom at a time so you always have access to another bathroom." },
+  { q: "What tile do you recommend for Florida bathrooms?", a: "For Florida bathrooms, we recommend porcelain tile for floors and large-format ceramic or porcelain for walls. We always use waterproof membrane systems behind all shower tile." },
+  { q: "Are your bathroom remodel quotes fixed?", a: "Fixed. Once we sign a contract, the price does not change unless you request a scope change in writing." },
+  { q: "Do you install walk-in showers?", a: "Yes. Walk-in shower conversions are one of our most popular bathroom upgrades. We handle everything from framing and waterproofing to tile, glass, and fixtures." },
+];
+const benefits = ["Walk-in shower and tub conversions", "Custom vanities and floating cabinets", "Large-format tile and heated floors", "Rainfall showerheads and body sprays", "Frameless glass enclosures", "Plumbing rough-in and fixture installation", "Waterproof membrane systems", "Permit handling included"];
+---
+<Layout
+  title="Bathroom Remodeling St. Petersburg FL | Hawley Construction Co."
+  description="Trusted bathroom remodelers serving St. Petersburg and Tampa Bay. Walk-in showers, custom vanities, tile work. Fixed-price quotes, licensed and insured. Call (704) 619-1480."
+  canonical="https://hawleyconstruction.co/bathroom-remodeling-st-petersburg/"
+  schema={schemaData}
+  ogImage={IMG}
+>
+  <Navbar />
+  <section class="relative pt-28 pb-20 md:pt-36 md:pb-28" style="background-color:var(--navy);">
+    <div class="absolute inset-0 overflow-hidden">
+      <img src={IMG} alt="Bathroom remodeling St. Petersburg FL" class="w-full h-full object-cover opacity-35" loading="eager" />
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <nav class="flex items-center gap-2 text-xs mb-6" style="color:rgba(255,255,255,0.6);font-family:'DM Sans',sans-serif;" aria-label="Breadcrumb">
+          <a href="/" style="color:rgba(255,255,255,0.6);">Home</a><span>/</span>
+          <a href="/services" style="color:rgba(255,255,255,0.6);">Services</a><span>/</span>
+          <span style="color:var(--gold);">Bathroom Remodeling</span>
+        </nav>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] mb-3 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">St. Petersburg, FL</span>
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" style="font-family:'Playfair Display',serif;">Bathroom Remodeling St. Petersburg FL</h1>
+        <p class="text-lg mb-8" style="color:rgba(255,255,255,0.8);font-family:'DM Sans',sans-serif;">Transform your bathroom into a spa-like retreat. Fixed-price quotes, licensed and insured, personally overseen by owner Landon Hawley.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="btn-gold text-center">Get Free Estimate</a>
+          <a href="tel:7046191480" class="btn-outline-light text-center">Call (704) 619-1480</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <img src={AFTER} alt="Bathroom remodel result St. Petersburg" class="w-full h-80 object-cover" style="border-radius:2px;" loading="lazy" />
+    </div>
+  </section>
+  <section class="py-16 md:py-24" style="background-color:var(--cream);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+          <span class="section-divider"></span>
+          <h2 class="text-3xl font-bold mb-6" style="color:var(--navy2);">St. Petersburg Bathroom Remodeling Experts</h2>
+          <p class="text-base leading-relaxed mb-6" style="color:var(--muted);font-family:'DM Sans',sans-serif;">Hawley Construction Co. has been transforming bathrooms across St. Petersburg, Tampa, and Clearwater since 2019. From a simple vanity and fixture upgrade to a complete gut renovation with custom tile and walk-in shower, we deliver exceptional craftsmanship at a fixed price.</p>
+          <h3 class="text-2xl font-bold mb-4" style="color:var(--navy2);">What Is Included</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            {benefits.map(b => (
+              <li class="flex items-start gap-2 text-sm" style="color:var(--muted);font-family:'DM Sans',sans-serif;">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5" style="background-color:var(--gold);display:inline-block;"></span>
+                {b}
+              </li>
+            ))}
+          </ul>
+          <h3 class="text-2xl font-bold mb-4" style="color:var(--navy2);">Investment Guide</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+            <div class="p-6 shadow-sm bg-white" style="border-radius:2px;">
+              <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Refresh</p>
+              <p class="text-3xl font-bold mb-2" style="color:var(--navy2);font-family:'Playfair Display',serif;">$15K-$30K</p>
+              <p class="text-sm" style="color:var(--muted);font-family:'DM Sans',sans-serif;">New fixtures, vanity, tile accents, lighting, and paint.</p>
+            </div>
+            <div class="p-6 shadow-sm" style="border-radius:2px;background-color:var(--navy);">
+              <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Full Remodel</p>
+              <p class="text-3xl font-bold mb-2 text-white" style="font-family:'Playfair Display',serif;">$30K-$60K</p>
+              <p class="text-sm" style="color:rgba(255,255,255,0.7);font-family:'DM Sans',sans-serif;">Complete gut renovation with new tile, shower, vanity, and plumbing.</p>
+            </div>
+            <div class="p-6 shadow-sm bg-white" style="border-radius:2px;">
+              <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Luxury Remodel</p>
+              <p class="text-3xl font-bold mb-2" style="color:var(--navy2);font-family:'Playfair Display',serif;">$60K+</p>
+              <p class="text-sm" style="color:var(--muted);font-family:'DM Sans',sans-serif;">Custom tile, heated floors, steam shower, freestanding tub, designer fixtures.</p>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold mb-4" style="color:var(--navy2);">Frequently Asked Questions</h3>
+          <div class="mb-10">
+            {faqs.map((item, i) => (
+              <div class="border-b py-5" style="border-color:oklch(0.88 0.01 250);">
+                <button class="faq-btn w-full text-left flex items-center justify-between gap-4" data-idx={i}>
+                  <span class="text-base font-semibold" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">{item.q}</span>
+                  <span class="text-xl font-light flex-shrink-0" style="color:var(--gold);">+</span>
+                </button>
+                <div class="faq-answer hidden mt-3">
+                  <p class="text-sm leading-relaxed" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="lg:col-span-1">
+          <div class="bg-white p-8 shadow-sm sticky top-24" style="border-radius:2px;">
+            <h2 class="text-xl font-bold mb-2" style="color:var(--navy2);">Get a Free Estimate</h2>
+            <p class="text-sm mb-6" style="color:var(--muted);font-family:'DM Sans',sans-serif;">We respond within 24 hours. No obligation.</p>
+            <form id="seo-form" action="https://formspree.io/f/xvgpwkqn" method="POST" class="flex flex-col gap-4">
+              <input type="hidden" name="service" value="Bathroom Remodeling" />
+              <input class="form-input" type="text" name="name" placeholder="Your Name" required />
+              <input class="form-input" type="email" name="email" placeholder="Email Address" required />
+              <input class="form-input" type="tel" name="phone" placeholder="Phone Number" />
+              <textarea class="form-input" name="message" rows="4" placeholder="Describe your project..."></textarea>
+              <button type="submit" class="btn-gold w-full text-center">Send Message</button>
+            </form>
+            <p id="form-success" class="hidden text-sm mt-4 text-center font-semibold" style="color:oklch(0.55 0.15 145);">Thank you! We will be in touch within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif;">Ready to Transform Your Bathroom?</h2>
+      <p class="mb-8" style="color:rgba(255,255,255,0.7);font-family:'DM Sans',sans-serif;">Call us or request a free estimate online. Serving St. Petersburg, Tampa, Clearwater, and all of Tampa Bay.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-gold text-center">Get Free Estimate</a>
+        <a href="tel:7046191480" class="btn-outline-light text-center">Call (704) 619-1480</a>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>
+<script>
+document.getElementById('seo-form')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target as HTMLFormElement;
+  const data = new FormData(form);
+  const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+  if (res.ok) {
+    form.style.display = 'none';
+    document.getElementById('form-success')?.classList.remove('hidden');
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', { 'send_to': 'AW-18172396876/cPy9CKLmgrQcEMyKo91D', 'value': 100.0, 'currency': 'USD' });
+      gtag('event', 'generate_lead', { 'currency': 'USD', 'value': 100.0 });
+    }
+  }
+});
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling as HTMLElement;
+    const icon = btn.querySelector('span:last-child') as HTMLElement;
+    const isOpen = !answer.classList.contains('hidden');
+    answer.classList.toggle('hidden', isOpen);
+    icon.textContent = isOpen ? '+' : '\u2212';
+  });
+});
+</script>

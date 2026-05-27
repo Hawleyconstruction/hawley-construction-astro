@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "GeneralContractor",
+    "@id": "https://hawleyconstruction.co",
+    "name": "Hawley Construction Co.",
+    "description": "Tampa Bay premier home remodeling contractor. Kitchen remodeling, bathroom renovations, home additions, sunrooms, Trex decks, and outdoor living spaces.",
+    "url": "https://hawleyconstruction.co",
+    "telephone": "+17046191480",
+    "email": "landon@hawleyconstruction.co",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "316 11th Ave NE",
+      "addressLocality": "St. Petersburg",
+      "addressRegion": "FL",
+      "postalCode": "33701",
+      "addressCountry": "US"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 27.7731, "longitude": -82.6386 },
+    "areaServed": ["Tampa", "St. Petersburg", "Clearwater", "Bradenton", "Sarasota", "Tarpon Springs"],
+    "priceRange": "$$-$$$",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "47" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hawley Construction Co.",
+    "url": "https://hawleyconstruction.co",
+    "logo": "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-logo-modern-K7nsMoUjXa4vQaiXbz97jj.webp",
+    "contactPoint": { "@type": "ContactPoint", "telephone": "+17046191480", "contactType": "customer service", "areaServed": "US", "availableLanguage": "English" }
+  }
+];
+
+const services = [
+  { title: "Kitchen Remodeling", desc: "Custom kitchens designed for the way you live.", href: "/kitchen-remodeling-st-petersburg/", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-kitchen-mSpoc3xtKks8iMHpTCvAxs.webp" },
+  { title: "Bathroom Remodeling", desc: "Transform your bathroom into a spa-like retreat.", href: "/bathroom-remodeling-st-petersburg/", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-bathroom-KW8hCkNSxN2cYTrJakvzLS.webp" },
+  { title: "Home Additions", desc: "Expand your living space with expertly crafted additions.", href: "/services/home-additions", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-home-addition-new-7k7PkNkc4ssP8WLmYJpDD9.webp" },
+  { title: "Sunrooms", desc: "Bring the Florida sunshine indoors with a beautiful sunroom.", href: "/sunroom-florida-room-contractor/", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-sunroom-screened-TouYoyDabjd4tNaeYJgTRx.webp" },
+  { title: "Outdoor Living", desc: "Create the ultimate outdoor retreat with custom patios.", href: "/services/outdoor-living", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-outdoor-living-new-hVfbb6yZQe8ungx9xcEYX8.webp" },
+  { title: "Trex Decks", desc: "Low-maintenance composite decking that lasts for decades.", href: "/trex-deck-builder-tampa-bay/", img: "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-trex-deck-2uwLnSueruCa29BoSx4nDJ.webp" },
+];
+
+const testimonials = [
+  { name: "Jennifer M.", location: "Tampa, FL", text: "Landon and his team completely transformed our kitchen. Every detail was handled with care. The quartz countertops and custom cabinetry are absolutely stunning." },
+  { name: "Robert & Lisa K.", location: "Clearwater, FL", text: "We hired Hawley Construction for a full master bathroom remodel and they exceeded every expectation. The tile work is flawless and they finished on schedule." },
+  { name: "David T.", location: "St. Petersburg, FL", text: "Our Trex deck turned out better than we imagined. The crew was professional, respectful of our property, and cleaned up every day." },
+  { name: "Amanda S.", location: "Bradenton, FL", text: "We added a sunroom to our home and it's become our favorite room in the house. Hawley Construction handled the entire process, including permits." },
+  { name: "Michael & Karen P.", location: "Sarasota, FL", text: "Their attention to detail on our kitchen remodel was incredible. Landon was always available to answer questions and kept us informed throughout." },
+  { name: "Chris W.", location: "Tarpon Springs, FL", text: "The outdoor living space Hawley Construction built for us has completely changed how we use our backyard. Our family spends every evening out there now." },
+];
+---
+<Layout
+  title="Tampa Bay Home Remodeling Contractor | Hawley Construction Co."
+  description="Tampa Bay trusted home remodeling contractor. Kitchen remodeling, bathroom renovations, home additions, Trex decks, sunrooms and outdoor living. Licensed and insured. Free estimates."
+  canonical="https://hawleyconstruction.co/"
+  schema={schema}
+  ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-kitchen-mSpoc3xtKks8iMHpTCvAxs.webp"
+>
+  <Navbar transparent={true} />
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center" style="background-color:var(--navy);">
+    <div class="absolute inset-0 overflow-hidden">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-kitchen-mSpoc3xtKks8iMHpTCvAxs.webp" alt="Luxury kitchen remodel Tampa Bay" class="w-full h-full object-cover opacity-40" loading="eager" />
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+      <div class="max-w-3xl">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] mb-4 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Tampa Bay Premier Remodeling Contractor</span>
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style="font-family:'Playfair Display',serif;">Transforming Homes Across Tampa Bay</h1>
+        <p class="text-lg md:text-xl mb-10 max-w-xl" style="color:rgba(255,255,255,0.8);font-family:'DM Sans',sans-serif;">High-Quality Kitchens, Bathrooms, Additions &amp; Outdoor Living Spaces crafted with precision for the way you live.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="btn-gold text-center">Get a Free Estimate</a>
+          <a href="tel:7046191480" class="btn-outline-light text-center">Call Now: 704-619-1480</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="background-color:var(--navy);border-top:1px solid oklch(0.28 0.008 250);" class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div><div class="text-4xl md:text-5xl font-bold mb-1" style="font-family:'Playfair Display',serif;color:var(--gold);">200+</div><div class="text-sm uppercase tracking-widest" style="color:oklch(0.65 0.01 250);font-family:'DM Sans',sans-serif;">Projects Completed</div></div>
+        <div><div class="text-4xl md:text-5xl font-bold mb-1" style="font-family:'Playfair Display',serif;color:var(--gold);">5&#9733;</div><div class="text-sm uppercase tracking-widest" style="color:oklch(0.65 0.01 250);font-family:'DM Sans',sans-serif;">Google Rating</div></div>
+        <div><div class="text-4xl md:text-5xl font-bold mb-1" style="font-family:'Playfair Display',serif;color:var(--gold);">6</div><div class="text-sm uppercase tracking-widest" style="color:oklch(0.65 0.01 250);font-family:'DM Sans',sans-serif;">Years in Tampa Bay</div></div>
+        <div><div class="text-4xl md:text-5xl font-bold mb-1" style="font-family:'Playfair Display',serif;color:var(--gold);">100%</div><div class="text-sm uppercase tracking-widest" style="color:oklch(0.65 0.01 250);font-family:'DM Sans',sans-serif;">Licensed &amp; Insured</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-20 md:py-28" style="background-color:var(--cream);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14">
+        <span class="section-divider"></span>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color:var(--navy2);">Our Services</h2>
+        <p class="text-lg max-w-xl" style="color:var(--muted);font-family:'DM Sans',sans-serif;">From kitchen transformations to outdoor living spaces — we handle every aspect of your home remodel.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(s => (
+          <a href={s.href} class="group block bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow" style="border-radius:2px;">
+            <div class="h-52 overflow-hidden">
+              <img src={s.img} alt={s.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2" style="color:var(--navy2);">{s.title}</h3>
+              <p class="text-sm leading-relaxed mb-4" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{s.desc}</p>
+              <span class="text-xs font-semibold uppercase tracking-wide" style="color:var(--steel);font-family:'DM Sans',sans-serif;">Learn More</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-12"><a href="/services" class="btn-outline-dark">View All Services</a></div>
+    </div>
+  </section>
+
+  <!-- WHY HAWLEY -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="section-divider"></span>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color:var(--navy2);">Why Tampa Bay Homeowners Choose Hawley</h2>
+          <p class="text-lg mb-8" style="color:var(--muted);font-family:'DM Sans',sans-serif;">We are an owner-operated remodeling company. Landon Hawley is personally involved in every project from first consultation to final walkthrough.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="flex gap-4"><span class="text-2xl">🏆</span><div><h3 class="text-base font-semibold mb-1" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">Owner-Operated</h3><p class="text-sm" style="color:var(--muted);font-family:'DM Sans',sans-serif;">Landon personally oversees every project.</p></div></div>
+            <div class="flex gap-4"><span class="text-2xl">📋</span><div><h3 class="text-base font-semibold mb-1" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">Fixed-Price Quotes</h3><p class="text-sm" style="color:var(--muted);font-family:'DM Sans',sans-serif;">No surprise change orders. Ever.</p></div></div>
+            <div class="flex gap-4"><span class="text-2xl">🔑</span><div><h3 class="text-base font-semibold mb-1" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">Permit Experts</h3><p class="text-sm" style="color:var(--muted);font-family:'DM Sans',sans-serif;">We handle all permits and inspections.</p></div></div>
+            <div class="flex gap-4"><span class="text-2xl">⭐</span><div><h3 class="text-base font-semibold mb-1" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">5-Star Rated</h3><p class="text-sm" style="color:var(--muted);font-family:'DM Sans',sans-serif;">47 five-star Google reviews.</p></div></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/kitchen-after-hsVXguHfNLPDyGVXHRHCyx.webp" alt="Kitchen remodel result" class="w-full h-64 object-cover" style="border-radius:2px;" loading="lazy" />
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/bathroom-after-mFZsTRAQ7UMXN2JYfxu5Qy.webp" alt="Bathroom remodel result" class="w-full h-64 object-cover mt-8" style="border-radius:2px;" loading="lazy" />
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/sunroom-after-c5igWFwkXMiTD7G7dExTJ2.webp" alt="Sunroom addition result" class="w-full h-64 object-cover" style="border-radius:2px;" loading="lazy" />
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/deck-after-fHq2VWgfu4bzQ7nx4A2z86.webp" alt="Trex deck result" class="w-full h-64 object-cover mt-8" style="border-radius:2px;" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 md:py-28" style="background-color:var(--cream);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 text-center">
+        <span class="section-divider mx-auto"></span>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color:var(--navy2);">What Our Clients Say</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonials.map(t => (
+          <div class="bg-white p-8 shadow-sm" style="border-radius:2px;">
+            <div class="mb-4 text-xl" style="color:var(--gold);">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="text-sm leading-relaxed mb-6" style="color:var(--muted);font-family:'DM Sans',sans-serif;">"{t.text}"</p>
+            <p class="text-sm font-semibold" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">{t.name}</p>
+            <p class="text-xs" style="color:var(--light);font-family:'DM Sans',sans-serif;">{t.location}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif;">Ready to Transform Your Home?</h2>
+      <p class="text-lg mb-10" style="color:rgba(255,255,255,0.7);font-family:'DM Sans',sans-serif;">Get a free, no-obligation estimate from Tampa Bay most trusted remodeling contractor.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-gold text-center">Get Free Estimate</a>
+        <a href="tel:7046191480" class="btn-outline-light text-center">Call (704) 619-1480</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,218 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { city: 'tampa' } },
+    { params: { city: 'st-petersburg' } },
+    { params: { city: 'clearwater' } },
+  ];
+}
+
+const cityData: Record<string, {
+  name: string; county: string; population: string; description: string;
+  neighborhoods: string[]; zipCodes: string[];
+  metaTitle: string; metaDescription: string;
+  heroHeading: string; heroSubheading: string; whyContent: string;
+  faqItems: { q: string; a: string }[];
+}> = {
+  tampa: {
+    name: "Tampa",
+    county: "Hillsborough County",
+    population: "400,000+",
+    description: "Tampa is one of Florida's fastest-growing cities, with a booming real estate market and a diverse housing stock ranging from historic bungalows in Seminole Heights to modern luxury homes in South Tampa. Homeowners across Tampa are investing in kitchen renovations, bathroom remodels, and home additions to maximize their property values.",
+    neighborhoods: ["South Tampa", "Westchase", "Carrollwood", "Seminole Heights", "Hyde Park", "Davis Islands", "Palma Ceia", "Bayshore", "Channelside", "New Tampa"],
+    zipCodes: ["33602", "33603", "33604", "33605", "33606", "33607", "33609", "33611", "33612", "33613", "33614", "33615", "33616", "33617", "33618", "33619", "33620", "33621", "33624", "33625", "33626", "33629", "33634", "33635", "33647"],
+    metaTitle: "Home Remodeling Tampa FL | Kitchen & Bath Renovation | Hawley Construction",
+    metaDescription: "Tampa's trusted remodeling contractor. Kitchen renovations, bathroom remodels, Trex decks, sunrooms & home additions. Free estimates. Call (704) 619-1480.",
+    heroHeading: "Tampa's Trusted Home Remodeling Contractor",
+    heroSubheading: "Custom kitchen renovations, bathroom remodels, home additions, and Trex decks built for Tampa homeowners. Licensed, insured, and fixed-price quotes.",
+    whyContent: "Tampa homeowners choose Hawley Construction because we understand the city's diverse architectural styles — from historic Craftsman bungalows in Seminole Heights to modern waterfront homes in Davis Islands. We use materials and techniques suited to Tampa's climate, including moisture-resistant cabinetry, coastal-grade composite decking, and impact-resistant windows.",
+    faqItems: [
+      { q: "How much does a kitchen remodel cost in Tampa?", a: "Kitchen remodeling in Tampa typically ranges from $25,000 to $80,000 depending on scope, materials, and layout changes. Hawley Construction provides free in-home estimates for all Tampa kitchen renovation projects." },
+      { q: "How long does a home remodel take in Tampa?", a: "A kitchen remodel typically takes 6-10 weeks. A bathroom remodel takes 3-6 weeks. Home additions take 3-6 months from permit approval to completion. Factors that affect timeline include permit processing (typically 1-2 weeks in Hillsborough County), custom tile work, and fixture lead times." },
+      { q: "Do I need a permit for home remodeling in Tampa?", a: "Yes, most remodeling projects in Tampa require a building permit from Hillsborough County. This includes kitchen remodels involving plumbing or electrical changes, bathroom renovations, home additions, and deck construction. Hawley Construction handles all permit applications and inspections." },
+      { q: "What areas of Tampa do you serve?", a: "Hawley Construction serves all of Tampa and surrounding areas including South Tampa, Westchase, Carrollwood, Seminole Heights, Hyde Park, Davis Islands, Palma Ceia, Bayshore, Channelside, and New Tampa." },
+    ],
+  },
+  "st-petersburg": {
+    name: "St. Petersburg",
+    county: "Pinellas County",
+    population: "260,000+",
+    description: "St. Petersburg is known for its beautiful waterfront homes, historic bungalows, and vibrant arts district. Homeowners in St. Pete are renovating kitchens, updating bathrooms, and adding outdoor living spaces to take advantage of the city's year-round sunshine and coastal lifestyle.",
+    neighborhoods: ["Downtown St. Pete", "Old Northeast", "Snell Isle", "Shore Acres", "Kenwood", "Crescent Heights", "Historic Uptown", "Jungle Terrace", "Pasadena", "Tierra Verde"],
+    zipCodes: ["33701", "33702", "33703", "33704", "33705", "33706", "33707", "33708", "33709", "33710", "33711", "33712", "33713", "33714", "33715", "33716"],
+    metaTitle: "Home Remodeling St. Petersburg FL | Kitchen & Bath Renovation | Hawley Construction",
+    metaDescription: "St. Petersburg's premier remodeling contractor. Kitchen renovations, bathroom remodels, Trex decks & sunrooms. Free estimates. Call (704) 619-1480.",
+    heroHeading: "St. Petersburg's Premier Remodeling Contractor",
+    heroSubheading: "Transforming St. Pete homes with custom kitchens, spa-like bathrooms, sunrooms, and composite decks designed for the Florida coastal lifestyle.",
+    whyContent: "St. Petersburg homeowners trust Hawley Construction because we specialize in renovations that complement the city's unique architectural character — from historic bungalow updates in Old Northeast to modern coastal kitchens in Shore Acres. We use moisture-resistant materials and coastal-grade finishes that withstand St. Pete's salt air and humidity.",
+    faqItems: [
+      { q: "How much does a kitchen remodel cost in St. Petersburg?", a: "Kitchen remodeling in St. Petersburg typically ranges from $25,000 to $80,000. Historic homes in Old Northeast and Snell Isle may require additional structural work, increasing costs by 10-20%. Hawley Construction provides free in-home estimates for all St. Pete kitchen renovation projects." },
+      { q: "What is the best decking material for St. Petersburg homes?", a: "Trex composite decking is the best choice for St. Petersburg homes due to its resistance to moisture, salt air, and UV fading. Unlike wood decking that warps and rots in Florida's humid climate, Trex decks maintain their appearance for 25+ years with minimal maintenance." },
+      { q: "Do I need a permit for remodeling in Pinellas County?", a: "Yes, most remodeling projects in St. Petersburg require permits from Pinellas County or the City of St. Petersburg building department. Hawley Construction manages the entire permitting process for our St. Pete clients." },
+      { q: "How long does a sunroom addition take in St. Petersburg?", a: "A sunroom addition in St. Petersburg typically takes 6-10 weeks from permit approval to completion. Permit processing in Pinellas County adds 2-3 weeks before construction begins." },
+    ],
+  },
+  clearwater: {
+    name: "Clearwater",
+    county: "Pinellas County",
+    population: "120,000+",
+    description: "Clearwater is a beautiful coastal city known for its award-winning beaches and family-friendly neighborhoods. Homeowners in Clearwater are investing in home remodeling to modernize their properties, increase energy efficiency, and create indoor-outdoor living spaces that take advantage of the Gulf Coast climate.",
+    neighborhoods: ["Clearwater Beach", "Countryside", "Safety Harbor", "Dunedin", "Palm Harbor", "Belleair", "Indian Rocks Beach", "Largo", "Seminole", "Oldsmar"],
+    zipCodes: ["33755", "33756", "33759", "33760", "33761", "33762", "33763", "33764", "33765", "33767"],
+    metaTitle: "Home Remodeling Clearwater FL | Kitchen & Bath Renovation | Hawley Construction",
+    metaDescription: "Clearwater's trusted remodeling contractor. Kitchen renovations, bathroom remodels, Trex decks & sunrooms. Free estimates. Call (704) 619-1480.",
+    heroHeading: "Clearwater's Trusted Home Remodeling Contractor",
+    heroSubheading: "Custom kitchen renovations, bathroom remodels, and outdoor living spaces built for Clearwater's Gulf Coast lifestyle.",
+    whyContent: "Clearwater homeowners choose Hawley Construction for our expertise in coastal construction. We use materials specifically suited to Clearwater's salt air environment — including marine-grade hardware, moisture-resistant cabinetry, and Trex composite decking that withstands Gulf Coast humidity without warping, rotting, or fading.",
+    faqItems: [
+      { q: "How much does a bathroom remodel cost in Clearwater?", a: "Bathroom remodeling in Clearwater typically ranges from $15,000 to $50,000 depending on scope and materials. A walk-in shower conversion costs $8,000-$20,000. A full master bath renovation runs $30,000-$60,000. Hawley Construction provides free in-home estimates." },
+      { q: "What outdoor living options work best in Clearwater?", a: "Trex composite decks and screened Florida rooms are the most popular outdoor living additions in Clearwater. Both are designed for Florida's climate and require minimal maintenance. A Trex deck costs $13,500-$25,500 for a standard 300 sq ft deck installed." },
+      { q: "Do you serve Dunedin and Safety Harbor?", a: "Yes. Hawley Construction serves Clearwater, Dunedin, Safety Harbor, Palm Harbor, Belleair, Largo, and all of Pinellas County." },
+      { q: "Are you licensed to work in Clearwater?", a: "Yes. Hawley Construction Co. is a Florida State Certified General Contractor, licensed to work throughout Pinellas County including Clearwater, Dunedin, Safety Harbor, and Palm Harbor." },
+    ],
+  },
+};
+
+const { city } = Astro.params;
+const data = cityData[city];
+const canonical = `https://hawleyconstruction.co/areas/${city}`;
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `Home Remodeling ${data.name} FL`,
+    "provider": { "@type": "GeneralContractor", "@id": "https://hawleyconstruction.co", "name": "Hawley Construction Co.", "telephone": "+17046191480" },
+    "areaServed": { "@type": "City", "name": data.name },
+    "url": canonical
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": data.faqItems.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } }))
+  }
+];
+const IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-kitchen-mSpoc3xtKks8iMHpTCvAxs.webp";
+---
+<Layout title={data.metaTitle} description={data.metaDescription} canonical={canonical} schema={schemaData} ogImage={IMG}>
+  <Navbar />
+  <section class="pt-28 pb-12 md:pt-36 md:pb-16" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-xs mb-6" style="color:rgba(255,255,255,0.6);font-family:'DM Sans',sans-serif;">
+        <a href="/" style="color:rgba(255,255,255,0.6);">Home</a><span>/</span>
+        <span style="color:var(--gold);">{data.name}</span>
+      </nav>
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] mb-3 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">{data.county}</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight" style="font-family:'Playfair Display',serif;">{data.heroHeading}</h1>
+      <p class="text-lg mb-8" style="color:rgba(255,255,255,0.75);font-family:'DM Sans',sans-serif;">{data.heroSubheading}</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn-gold text-center">Get Free Estimate</a>
+        <a href="tel:7046191480" class="btn-outline-light text-center">Call (704) 619-1480</a>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 md:py-24" style="background-color:var(--cream);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+          <span class="section-divider"></span>
+          <h2 class="text-3xl font-bold mb-6" style="color:var(--navy2);">Remodeling Contractor Serving {data.name}, FL</h2>
+          <p class="text-base leading-relaxed mb-6" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{data.description}</p>
+          <p class="text-base leading-relaxed mb-8" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{data.whyContent}</p>
+          <h3 class="text-2xl font-bold mb-4" style="color:var(--navy2);">Neighborhoods We Serve in {data.name}</h3>
+          <div class="flex flex-wrap gap-2 mb-10">
+            {data.neighborhoods.map(n => (
+              <span class="text-xs font-medium px-3 py-1.5" style="background-color:white;color:var(--navy2);border:1px solid oklch(0.88 0.01 250);border-radius:2px;font-family:'DM Sans',sans-serif;">{n}</span>
+            ))}
+          </div>
+          <h3 class="text-2xl font-bold mb-4" style="color:var(--navy2);">Services We Offer in {data.name}</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            {[
+              { label: "Kitchen Remodeling", href: "/kitchen-remodeling-st-petersburg/" },
+              { label: "Bathroom Remodeling", href: "/bathroom-remodeling-st-petersburg/" },
+              { label: "Trex Deck Building", href: "/trex-deck-builder-tampa-bay/" },
+              { label: "Sunroom / Florida Room", href: "/sunroom-florida-room-contractor/" },
+              { label: "ADU / In-Law Suite", href: "/adu-in-law-suite-builder/" },
+              { label: "Home Additions", href: "/services/home-additions" },
+              { label: "Full Home Remodels", href: "/services/full-home-remodels" },
+              { label: "Custom Cabinetry", href: "/services/custom-cabinetry" },
+            ].map(s => (
+              <a href={s.href} class="flex items-center gap-2 text-sm font-medium" style="color:var(--navy2);font-family:'DM Sans',sans-serif;text-decoration:none;">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background-color:var(--gold);display:inline-block;"></span>
+                {s.label}
+              </a>
+            ))}
+          </div>
+          <h3 class="text-2xl font-bold mb-4" style="color:var(--navy2);">Frequently Asked Questions</h3>
+          <div class="mb-10">
+            {data.faqItems.map((item, i) => (
+              <div class="border-b py-5" style="border-color:oklch(0.88 0.01 250);">
+                <button class="faq-btn w-full text-left flex items-center justify-between gap-4" data-idx={i}>
+                  <span class="text-base font-semibold" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">{item.q}</span>
+                  <span class="text-xl font-light flex-shrink-0" style="color:var(--gold);">+</span>
+                </button>
+                <div class="faq-answer hidden mt-3">
+                  <p class="text-sm leading-relaxed" style="color:var(--muted);font-family:'DM Sans',sans-serif;">{item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="lg:col-span-1">
+          <div class="bg-white p-8 shadow-sm sticky top-24" style="border-radius:2px;">
+            <h2 class="text-xl font-bold mb-2" style="color:var(--navy2);">Get a Free Estimate</h2>
+            <p class="text-sm mb-6" style="color:var(--muted);font-family:'DM Sans',sans-serif;">Serving {data.name} and all of {data.county}. We respond within 24 hours.</p>
+            <form id="area-form" action="https://formspree.io/f/xvgpwkqn" method="POST" class="flex flex-col gap-4">
+              <input type="hidden" name="city" value={data.name} />
+              <input class="form-input" type="text" name="name" placeholder="Your Name" required />
+              <input class="form-input" type="email" name="email" placeholder="Email Address" required />
+              <input class="form-input" type="tel" name="phone" placeholder="Phone Number" />
+              <textarea class="form-input" name="message" rows="4" placeholder="Describe your project..."></textarea>
+              <button type="submit" class="btn-gold w-full text-center">Send Message</button>
+            </form>
+            <p id="form-success" class="hidden text-sm mt-4 text-center font-semibold" style="color:oklch(0.55 0.15 145);">Thank you! We will be in touch within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4" style="font-family:'Playfair Display',serif;">Ready to Start Your {data.name} Project?</h2>
+      <p class="mb-8" style="color:rgba(255,255,255,0.7);font-family:'DM Sans',sans-serif;">Call us or request a free estimate online. We respond within 24 hours.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-gold text-center">Get Free Estimate</a>
+        <a href="tel:7046191480" class="btn-outline-light text-center">Call (704) 619-1480</a>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>
+<script>
+document.getElementById('area-form')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target as HTMLFormElement;
+  const data = new FormData(form);
+  const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+  if (res.ok) {
+    form.style.display = 'none';
+    document.getElementById('form-success')?.classList.remove('hidden');
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', { 'send_to': 'AW-18172396876/cPy9CKLmgrQcEMyKo91D', 'value': 100.0, 'currency': 'USD' });
+      gtag('event', 'generate_lead', { 'currency': 'USD', 'value': 100.0 });
+    }
+  }
+});
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling as HTMLElement;
+    const icon = btn.querySelector('span:last-child') as HTMLElement;
+    const isOpen = !answer.classList.contains('hidden');
+    answer.classList.toggle('hidden', isOpen);
+    icon.textContent = isOpen ? '+' : '\u2212';
+  });
+});
+</script>

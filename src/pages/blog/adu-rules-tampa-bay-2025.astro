@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+const IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-home-addition-new-7k7PkNkc4ssP8WLmYJpDD9.webp";
+const schemaData = [{"@context":"https://schema.org","@type":"Article","headline":"ADU Rules in Tampa Bay 2025: What Homeowners Need to Know","datePublished":"2024-12-10","author":{"@type":"Person","name":"Landon Hawley"},"publisher":{"@type":"Organization","name":"Hawley Construction Co.","url":"https://hawleyconstruction.co"},"image":IMG,"url":"https://hawleyconstruction.co/blog/adu-rules-tampa-bay-2025"}];
+---
+<Layout
+  title="ADU Rules in Tampa Bay 2025: What Homeowners Need to Know | Hawley Construction"
+  description="Florida has made it easier than ever to build an ADU. We explain the current rules for Tampa, St. Petersburg, and Pinellas County — setbacks, size limits, permits, and rental rules."
+  canonical="https://hawleyconstruction.co/blog/adu-rules-tampa-bay-2025"
+  schema={schemaData}
+  ogImage={IMG}
+>
+  <Navbar />
+  <section class="pt-28 pb-12 md:pt-36 md:pb-16" style="background-color:var(--navy);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-xs mb-6" style="color:rgba(255,255,255,0.6);font-family:'DM Sans',sans-serif;"><a href="/" style="color:rgba(255,255,255,0.6);">Home</a><span>/</span><a href="/blog" style="color:rgba(255,255,255,0.6);">Blog</a><span>/</span><span style="color:var(--gold);">ADU Rules 2025</span></nav>
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] mb-3 block" style="color:var(--gold);font-family:'DM Sans',sans-serif;">ADU</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight" style="font-family:'Playfair Display',serif;">ADU Rules in Tampa Bay 2025: What Homeowners Need to Know</h1>
+      <p class="text-sm" style="color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif;">By Landon Hawley &middot; December 10, 2024</p>
+    </div>
+  </section>
+  <section class="py-16 md:py-24" style="background-color:var(--cream);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <img src={IMG} alt="ADU Tampa Bay FL" class="w-full h-72 object-cover mb-10" style="border-radius:2px;" loading="eager" />
+      <div style="font-family:'DM Sans',sans-serif;color:var(--muted);line-height:1.8;">
+        <p>Florida's ADU landscape has changed significantly. State legislation has preempted many local restrictions, making it easier than ever for Tampa Bay homeowners to build an accessory dwelling unit. Here is what you need to know in 2025.</p>
+        <h2 style="color:var(--navy2);font-family:'Playfair Display',serif;margin-top:2rem;margin-bottom:1rem;">Florida State ADU Law (HB 1339)</h2>
+        <p>Florida's HB 1339, effective July 2023, requires all Florida municipalities to allow ADUs on any single-family residential lot. Local governments can still regulate setbacks, height, and size, but they cannot outright prohibit ADUs. This is a major change that opened up ADU development across Tampa Bay.</p>
+        <h2 style="color:var(--navy2);font-family:'Playfair Display',serif;margin-top:2rem;margin-bottom:1rem;">Local Rules by Municipality</h2>
+        <table style="width:100%;border-collapse:collapse;margin-bottom:1.5rem;">
+          <thead><tr style="background-color:var(--navy);color:white;"><th style="padding:0.75rem 1rem;text-align:left;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;">Municipality</th><th style="padding:0.75rem 1rem;text-align:left;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;">Max ADU Size</th><th style="padding:0.75rem 1rem;text-align:left;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;">Rental Allowed?</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid oklch(0.88 0.01 250);"><td style="padding:0.75rem 1rem;font-weight:600;color:var(--navy2);">St. Petersburg</td><td style="padding:0.75rem 1rem;">750 sq ft or 50% of main home</td><td style="padding:0.75rem 1rem;">Yes (long-term)</td></tr>
+            <tr style="border-bottom:1px solid oklch(0.88 0.01 250);background-color:white;"><td style="padding:0.75rem 1rem;font-weight:600;color:var(--navy2);">Tampa</td><td style="padding:0.75rem 1rem;">800 sq ft or 30% of lot</td><td style="padding:0.75rem 1rem;">Yes (long-term)</td></tr>
+            <tr style="border-bottom:1px solid oklch(0.88 0.01 250);"><td style="padding:0.75rem 1rem;font-weight:600;color:var(--navy2);">Clearwater</td><td style="padding:0.75rem 1rem;">650 sq ft</td><td style="padding:0.75rem 1rem;">Yes (long-term)</td></tr>
+            <tr style="border-bottom:1px solid oklch(0.88 0.01 250);background-color:white;"><td style="padding:0.75rem 1rem;font-weight:600;color:var(--navy2);">Pinellas County</td><td style="padding:0.75rem 1rem;">1,000 sq ft</td><td style="padding:0.75rem 1rem;">Yes</td></tr>
+          </tbody>
+        </table>
+        <p><strong style="color:var(--navy2);">Note:</strong> Short-term rental rules (Airbnb, VRBO) vary significantly by municipality and HOA. Always verify current short-term rental regulations with your local municipality before building an ADU with rental income as the primary goal.</p>
+        <h2 style="color:var(--navy2);font-family:'Playfair Display',serif;margin-top:2rem;margin-bottom:1rem;">Permits Required</h2>
+        <p>All ADUs require building permits in Florida regardless of size. The permitting process typically takes 4-8 weeks. Hawley Construction handles all permit applications, inspections, and coordination with local municipalities as part of every ADU project.</p>
+      </div>
+      <div class="mt-12 p-8 text-center" style="background-color:var(--navy);border-radius:2px;">
+        <h2 class="text-2xl font-bold text-white mb-3" style="font-family:'Playfair Display',serif;">Get a Free ADU Estimate</h2>
+        <p class="mb-6" style="color:rgba(255,255,255,0.7);font-family:'DM Sans',sans-serif;">Serving Tampa, St. Petersburg, Clearwater, and all of Tampa Bay.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/adu-in-law-suite-builder/" class="btn-gold text-center">ADU Builder</a>
+          <a href="/contact" class="btn-outline-light text-center">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Layout>

@@ -1,0 +1,115 @@
+---
+const LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-logo-modern-K7nsMoUjXa4vQaiXbz97jj.webp";
+const { transparent = false } = Astro.props;
+---
+<header id="navbar" class={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${transparent ? 'bg-transparent' : 'bg-white/95 backdrop-blur-md shadow-sm'}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 flex-shrink-0">
+        <div class="flex flex-col leading-none">
+          <span id="nav-brand" class="text-xl font-bold tracking-wide" style="font-family:'Playfair Display',serif;">HAWLEY</span>
+          <span class="text-[9px] font-semibold tracking-[0.18em] uppercase" style="color:var(--gold);font-family:'DM Sans',sans-serif;">Construction Co.</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        {[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: 'Our Work', href: '/our-work' },
+          { label: 'Areas', href: '/areas/tampa' },
+          { label: 'FAQ', href: '/faq' },
+          { label: 'Blog', href: '/blog' },
+          { label: 'Contact', href: '/contact' },
+        ].map(link => (
+          <a href={link.href} class="nav-link text-sm font-medium tracking-wide transition-colors duration-200 hover:text-[oklch(0.77_0.065_82)]" style="font-family:'DM Sans',sans-serif;">{link.label}</a>
+        ))}
+      </nav>
+
+      <!-- CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="tel:7046191480" id="nav-phone" class="flex items-center gap-2 text-sm font-semibold" style="font-family:'DM Sans',sans-serif;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.09a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.5z"></path></svg>
+          704-619-1480
+        </a>
+        <a href="/contact" class="btn-gold text-xs" style="border-radius:2px;">Free Estimate</a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button id="menu-toggle" class="md:hidden p-2" aria-label="Toggle menu">
+        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100 overflow-hidden max-h-0 transition-all duration-300">
+    <div class="px-4 py-4 flex flex-col gap-4">
+      {[
+        { label: 'Home', href: '/' },
+        { label: 'Services', href: '/services' },
+        { label: 'Our Work', href: '/our-work' },
+        { label: 'Areas', href: '/areas/tampa' },
+        { label: 'FAQ', href: '/faq' },
+        { label: 'Blog', href: '/blog' },
+        { label: 'Contact', href: '/contact' },
+      ].map(link => (
+        <a href={link.href} class="text-base font-medium py-1 transition-colors hover:text-[oklch(0.77_0.065_82)]" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">{link.label}</a>
+      ))}
+      <a href="tel:7046191480" class="flex items-center gap-2 text-base font-semibold" style="color:var(--navy2);font-family:'DM Sans',sans-serif;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.09a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.5z"></path></svg>
+        704-619-1480
+      </a>
+      <a href="/contact" class="btn-gold text-center" style="border-radius:2px;">Get Free Estimate</a>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile sticky call button -->
+<a href="tel:7046191480" class="fixed bottom-6 right-6 z-50 md:hidden flex items-center gap-2 font-semibold px-5 py-3 shadow-lg" style="border-radius:2px;font-family:'DM Sans',sans-serif;font-size:0.875rem;background-color:var(--gold);color:var(--navy);">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.09a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.5z"></path></svg>
+  Call Now
+</a>
+
+<script>
+const navbar = document.getElementById('navbar');
+const navBrand = document.getElementById('nav-brand');
+const navPhone = document.getElementById('nav-phone');
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const iconMenu = document.getElementById('icon-menu');
+const iconClose = document.getElementById('icon-close');
+const isTransparent = navbar?.classList.contains('bg-transparent');
+
+function updateNav() {
+  const scrolled = window.scrollY > 40;
+  if (!navbar) return;
+  if (scrolled) {
+    navbar.classList.remove('bg-transparent');
+    navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+    if (navBrand) navBrand.style.color = 'oklch(0.18 0.008 250)';
+    if (navPhone) navPhone.style.color = '#4F5458';
+  } else if (isTransparent) {
+    navbar.classList.add('bg-transparent');
+    navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+    if (navBrand) navBrand.style.color = 'white';
+    if (navPhone) navPhone.style.color = 'white';
+  }
+}
+
+if (isTransparent) {
+  if (navBrand) navBrand.style.color = 'white';
+  if (navPhone) navPhone.style.color = 'white';
+  window.addEventListener('scroll', updateNav, { passive: true });
+}
+
+menuToggle?.addEventListener('click', () => {
+  const isOpen = mobileMenu?.style.maxHeight !== '0px' && mobileMenu?.style.maxHeight !== '';
+  if (mobileMenu) mobileMenu.style.maxHeight = isOpen ? '0px' : '400px';
+  iconMenu?.classList.toggle('hidden', !isOpen);
+  iconClose?.classList.toggle('hidden', isOpen);
+});
+</script>

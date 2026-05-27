@@ -1,0 +1,75 @@
+---
+// Hawley Construction Co. — Shared Layout
+// Every page passes: title, description, canonical, schema (optional JSON-LD array)
+const {
+  title,
+  description,
+  canonical,
+  schema = [],
+  ogImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663540279873/mqBaZEe8cowVKqLebSdcGQ/hawley-hero-kitchen-mSpoc3xtKks8iMHpTCvAxs.webp"
+} = Astro.props;
+
+const GA_ID = "G-1L7LLQBK32";
+const AW_ID = "AW-18172396876";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="Hawley Construction Co." />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Google tag (gtag.js) — GA4 + Google Ads -->
+  <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+  <script define:vars={{ GA_ID, AW_ID }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+    gtag('config', AW_ID);
+
+    // Phone-click conversion — fires on every tel: link across the site
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'conversion', {
+            'send_to': AW_ID + '/phone_call_click',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+        });
+      });
+    });
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  {schema.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
+  <slot />
+</body>
+</html>
